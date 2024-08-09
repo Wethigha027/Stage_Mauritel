@@ -50,3 +50,13 @@ class ServiceForm(forms.ModelForm):
         if commit:
             service.save()
         return service
+    
+# class DemandesForm(forms.ModelForm):
+#     class Meta:
+#       fields=['Id_demande','Id_candidat','Id_sujet', 'Date_soumission','statut']
+#     def __init__(self, *args, **kwargs):
+#         super(DemandesForm, self).__init__(*args, **kwargs)
+#         #les champs en lecture seule
+#         self.fields['Id_demande'].widget.attrs['readonly'] = True
+#         self.fields['Id_candidat'].widget.attrs['readonly'] = True
+#         self.fields['Date_soumission'].widget.attrs['readonly'] = True

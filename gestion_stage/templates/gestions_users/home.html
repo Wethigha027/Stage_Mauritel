@@ -1,0 +1,21 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<div ><a href="{% url 'create_utilisateur' %}" ><button style="background-color: #18f; border-radius: 6px; ">Créer un Compte</button></a></div>
+<form action="{% url 'home' %}" method="POST">
+    {% csrf_token %}
+<div>
+    <div>
+    <input type="email" required placeholder="votre email" name="email">
+    </div>
+    <div>
+        <input type="password" required placeholder="password" name="password">
+    </div>
+    <input type="submit" value="connecter">
+</div>
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+</form>

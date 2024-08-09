@@ -80,7 +80,11 @@ class Demandes(models.Model):
         if self.Date_soumission is None:
             self.Date_soumission = self.Id_candidat.Date_demande
         super().save(*args, **kwargs)
-
+    # pour id_demande=id_candidate
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.Id_demande:  
+            self.Id_candidat = self.Id_demande
     def __str__(self):
         return str(self.Id_demande)
 
